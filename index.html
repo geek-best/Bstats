@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profil Brawl Stars</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="profile">
+
+        <h1>Profil Brawl Stars</h1>
+
+        <div class="champ">
+            <label for="tag">Entrez le player tag</label>
+            <input id="tag" type="text">
+            <button onclick="loadPlayer()">Rechercher</button>
+        </div>
+        
+        <div class="card">
+
+            <h2 id="playerName">Chargement...</h2>
+
+            <p>
+                🏆
+                <span id="playerTrophies">---</span>
+                trophées
+            </p>
+
+        </div>
+
+    </main>
+
+    <script>
+
+        async function loadPlayer() {
+            console.log("script chargé!")
+            const response = await fetch("/api/player", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                       },
+                     body: JSON.stringify({
+                         playerTag: playerTag
+                     })
+                    });
+            const player = await response.json();
+
+            document.getElementById("playerName").textContent =
+                player.name;
+
+            document.getElementById("playerTrophies").textContent =
+                player.trophies;
+        
+
+        
+        }
+
+        const playerTag = document.getElementById("tag").value;
+
+        
+
+    </script>
+
+</body>
+
+</html>

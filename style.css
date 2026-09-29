@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #222;
+    color: white;
+}
+
+.profile {
+    width: 90%;
+    max-width: 500px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.card {
+    padding: 30px;
+    border-radius: 15px;
+    background: #333;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+.card p {
+    font-size: 20px;
+}
